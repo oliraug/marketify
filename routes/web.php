@@ -21,7 +21,9 @@ Route::get('/', function () {
 Route::get('/submit', function () {
     return view('submit');
 });
-
+Route::get('/', function(){
+	return view('index');
+});
 //Submitting the Link Form
 Route::post('/submit', function (Request $request) {
     $data = $request->validate([
@@ -83,8 +85,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('category/{id}', 'CategoriesController@index');
 Route::post('category', 'CategoriesController@create');
-Route::get('category/{id}', 'CategoriesController@store');
+Route::post('category', 'CategoriesController@store');
 Route::get('category/{id}', 'CategoriesController@show');
 Route::delete('category/{id}', 'CategoriesController@destroy');
-Route::put('category/{id}', 'CategoriesController@update');
-
+Route::post('category/{id}', 'CategoriesController@update');
