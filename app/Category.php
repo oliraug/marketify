@@ -16,6 +16,10 @@ class Category extends Model
     		'description'
     );
 
+    public function validate($input)
+    {
+        return Validator::make($input, $this->fillable);
+    }
     //Define relationships, each market user has many product categories
     public function user()
     {
